@@ -46,7 +46,7 @@
             <a class="nav-link js-scroll-trigger" href="#systems">System</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#user_interface">Budget</a>
+            <a class="nav-link js-scroll-trigger" href="#budget">Budget</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
@@ -256,23 +256,43 @@
         <br>
 </section>
 
-<section id="user_interface" class="projects-section bg-dark">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <br>
-        <h2 class="text-primary mt-0">Budget</h2>
-        <hr class="divider  my-4">
-        <p class="text-white-50 mb-4">
-          a small paragraph concerning budget goes here
-          we might want to consider removing background of pie chart
-          </p>
-      </div>
-        <img class="img-fluid" src="img/pie_chart.png" alt="">
-
-    </div>
-  </div>
-  <br>
+<section id="budget" class="projects-section bg-dark">
+  <script type="text/javascript">
+  window.onload = function () {
+  	var chart = new CanvasJS.Chart("chartContainer",
+  	{
+  		theme: "dark2",
+  		title:{
+  			text: "Budget For Project"
+  		},
+  		data: [
+  		{
+  			type: "pie",
+  			showInLegend: true,
+  			toolTipContent: "{y} - #percent %",
+  			yValueFormatString: "$##0.##",
+  			legendText: "{indexLabel}",
+  			dataPoints: [
+  				{  y: 95.47, indexLabel: "Chasis" },
+  				{  y: 76.72, indexLabel: "Microcontroller" },
+  				{  y: 151.89, indexLabel: "Communication" },
+  				{  y: 56.45, indexLabel: "GPS"},
+  				{  y: 42.01, indexLabel: "Power" },
+  				{  y: 179.01, indexLabel: "Sensor"},
+  				{  y: 19.95 , indexLabel: "Servo"},
+          {  y: 90.07, indexLabel: "Taxes and Fees"}
+  			]
+  		}
+  		]
+  	});
+  	chart.render();
+  }
+  </script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></head>
+  <body>
+  <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+</br>
+  </body>
 </section>
 
 
